@@ -1,0 +1,124 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.calculator {
+    background-color: #023047;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px #8ECAE6;
+}
+
+/* --- Display Screen Styling --- */
+.display-history {
+    height: 30px; 
+    margin-bottom: 5px;
+    color: #219EBC; /* Lighter color for history */
+    font-size: 1.2em;
+    text-align: right;
+    padding: 5px 10px 0 0;
+    box-sizing: border-box;
+}
+
+#display {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8ECAE6;
+    color: #023047;
+    font-size: 3em;
+    text-align: right;
+    padding: 10px;
+    box-sizing: border-box;
+    pointer-events: none; /* Prevents keyboard input on the display itself */
+}
+
+/* --- Buttons Grid Styling --- */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.1s ease-out; /* Smooth transitions */
+    color: #fff;
+    background-color: #219EBC;
+}
+
+.buttons button:hover {
+    background-color:   #023047;
+    border: #219EBC 2px solid;
+    /* Subtle hover effect */
+}
+
+/* --- Visual feedback for keyboard press --- */
+button.active {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); 
+    transform: scale(0.95);
+}
+
+/* --- Specific Button Styles --- */
+.number {
+    background-color: #8ECAE6;
+}
+
+.operator {
+    background-color: #ff9500;
+}
+
+.clear, .delete {
+    background-color: #a0a0a0;
+}
+
+.equal {
+    grid-column: span 4; 
+    background-color: #007aff;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.decimal {
+    grid-column: span 2;
+}
+
+
+
+@media screen {
+        .calculator {
+        width: 90vw;
+        max-width: 400px;
+    }
+}
+
+
+@media (min-width: 600px) {
+    .calculator {
+        width: 400px;
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
