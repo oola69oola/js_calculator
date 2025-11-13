@@ -1,47 +1,58 @@
+/* --- Base Layout Styles (Remain the same) --- */
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #ffffff;
+    background-color: #f0f0f0;
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
-.calculator {
-    background-color: #023047;
-    border-radius: 10px;
+.calculators-wrapper {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
     padding: 20px;
-    box-shadow: 0 10px 20px #8ECAE6;
 }
 
-/* --- Display Screen Styling --- */
+.calculator {
+    width: 320px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+}
+
+/* --- Display Styles (Use generic classes) --- */
+
 .display-history {
-    height: 30px; 
+    height: 30px;
     margin-bottom: 5px;
-    color: #219EBC; /* Lighter color for history */
     font-size: 1.2em;
     text-align: right;
     padding: 5px 10px 0 0;
     box-sizing: border-box;
 }
 
-#display {
+.display-current {
     width: 100%;
     height: 60px;
     margin-bottom: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #8ECAE6;
-    color: #023047;
     font-size: 3em;
     text-align: right;
     padding: 10px;
     box-sizing: border-box;
-    pointer-events: none; /* Prevents keyboard input on the display itself */
+    pointer-events: none;
 }
 
-/* --- Buttons Grid Styling --- */
+/* --- Buttons Grid Styles (Base) --- */
+
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -54,39 +65,22 @@ body {
     border-radius: 5px;
     font-size: 1.5em;
     cursor: pointer;
-    transition: all 0.1s ease-out; /* Smooth transitions */
-    color: #fff;
-    background-color: #219EBC;
+    transition: all 0.1s ease-out;
+    color: #fff; /* Default text color for buttons */
 }
 
 .buttons button:hover {
-    background-color:   #023047;
-    border: #219EBC 2px solid;
-    /* Subtle hover effect */
+    filter: brightness(1.2);
 }
 
-/* --- Visual feedback for keyboard press --- */
 button.active {
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); 
     transform: scale(0.95);
 }
 
-/* --- Specific Button Styles --- */
-.number {
-    background-color: #8ECAE6;
-}
-
-.operator {
-    background-color: #ff9500;
-}
-
-.clear, .delete {
-    background-color: #a0a0a0;
-}
-
 .equal {
-    grid-column: span 4; 
-    background-color: #007aff;
+   grid-column: span 4;
+
 }
 
 .zero {
@@ -99,26 +93,121 @@ button.active {
 
 
 
-@media screen {
-        .calculator {
-        width: 90vw;
-        max-width: 400px;
-    }
+
+/* ---------------------------------------------------------------- */
+/* --- 🌊 CALCULATOR 1: DEEP OCEAN THEME (Blue Shades) --- */
+/* Base Colors: #023047 (Darkest), #219EBC (Mid/Operator), #8ECAE6 (Light/Number) */
+/* ---------------------------------------------------------------- */
+
+.calculator-theme-default {
+    background-color: #023047; /* Darkest Blue Background */
+    box-shadow: 0 10px 20px rgba(2, 48, 71, 0.5);
+}
+.calculator-theme-default .display-current {
+    background-color: #004d6e; /* Slightly lighter display background */
+    color: #fff;
+}
+.calculator-theme-default .display-history {
+    color: #8ECAE6; /* Lightest color for history text */
+}
+
+/* Number and Decimal Buttons */
+.calculator-theme-default .number {
+    background-color: #8ECAE6; /* Lightest Blue */
+    color: #023047; /* Dark text on light buttons */
+}
+
+/* Operator Buttons */
+.calculator-theme-default .operator {
+    background-color: #219EBC; /* Mid Blue */
+}
+.calculator-theme-default .clear, 
+.calculator-theme-default .delete {
+    background-color: #3f6e80; /* Neutral/Muted Blue */
 }
 
 
-@media (min-width: 600px) {
-    .calculator {
-        width: 400px;
-    }
+
+
+
+/* Equals Button */
+.calculator-theme-default .equal {
+    background-color: #007aff; /* Standard accent blue (or #219EBC) */
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #ffffff;
-    margin: 0;
-    font-family: Arial, sans-serif;
+
+/* ---------------------------------------------------------------- */
+/* --- 💜 CALCULATOR 2: VIBRANT VIOLET THEME --- */
+/* Base Colors: #F7AEF8 (Lightest/Accent), #B388EB (Mid/Number), #8093F1 (Operator) */
+/* ---------------------------------------------------------------- */
+
+.calculator-theme-green { /* Renamed from original "green" class */
+    background-color: #4a4e8d; /* Dark base derived from the palette */
+    box-shadow: 0 10px 20px rgba(128, 147, 241, 0.5);
+}
+.calculator-theme-green .display-current {
+    background-color: #3b3e73;
+    color: #fff;
+}
+.calculator-theme-green .display-history {
+    color: #F7AEF8; /* Lightest Violet for history text */
+}
+
+/* Number and Decimal Buttons */
+.calculator-theme-green .number {
+    background-color: #B388EB; /* Mid Violet */
+    color: #333; /* Dark text */
+}
+
+/* Operator Buttons */
+.calculator-theme-green .operator {
+    background-color: #8093F1; /* Blueish Violet */
+}
+.calculator-theme-green .clear, 
+.calculator-theme-green .delete {
+    background-color: #a0a0a0; /* Neutral Gray */
+}
+
+/* Equals Button */
+.calculator-theme-green .equal {
+    background-color: #F7AEF8; /* Lightest Violet */
+    color: #4a4e8d; /* Dark text */
+}
+
+
+/* ---------------------------------------------------------------- */
+/* --- 🔥 CALCULATOR 3: BOLD RETRO THEME --- */
+/* Base Colors: #00798C (Darkest/Container), #D1495B (Mid/Operator), #EDAE49 (Light/Number) */
+/* ---------------------------------------------------------------- */
+
+.calculator-theme-red { /* Renamed from original "red" class */
+    background-color: #00798C; /* Teal/Cyan Background */
+    box-shadow: 0 10px 20px rgba(0, 121, 140, 0.5);
+}
+.calculator-theme-red .display-current {
+    background-color: #005a6a;
+    color: #fff;
+}
+.calculator-theme-red .display-history {
+    color: #EDAE49; /* Amber for history text */
+}
+
+/* Number and Decimal Buttons */
+.calculator-theme-red .number {
+    background-color: #EDAE49; /* Amber */
+    color: #333; /* Dark text */
+}
+
+/* Operator Buttons */
+.calculator-theme-red .operator {
+    background-color: #D1495B; /* Brick Red/Maroon */
+}
+.calculator-theme-red .clear, 
+.calculator-theme-red .delete {
+    background-color: #993344; /* Darker Red */
+}
+
+/* Equals Button */
+.calculator-theme-red .equal {
+    background-color: #D1495B; /* Brick Red/Maroon */
 }
